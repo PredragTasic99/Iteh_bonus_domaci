@@ -50,8 +50,8 @@ class Prijava{
     #update
     public function update($id, mysqli $conn)
     {
-        $query = "UPDATE prijave set predmet = $this->predmet,katedra = $this->katedra,sala = $this->sala,datum = $this->datum WHERE id=$id";
-        return $conn->query($query);
+        $query = "UPDATE prijave set predmet = '$this->predmet',katedra = '$this->katedra',sala = '$this->sala',datum = '$this->datum' WHERE id=$id";
+        return mysqli_query($conn, $query) or die(mysqli_error($conn));
     }
 
     #insert add
